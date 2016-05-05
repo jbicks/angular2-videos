@@ -4,6 +4,7 @@ import {AuthorsComponent} from './authors.component';
 import {StarComponent} from './star.component';
 import {LikeComponent} from './like.component';
 import {ContactFormComponent} from './contact-form.component';
+import {SignUpFormComponent} from './signup-form.component';
 
 @Component({
     selector: 'my-app',
@@ -16,9 +17,17 @@ import {ContactFormComponent} from './contact-form.component';
         <star></star>
         <like [counter]="10"></like>
         <contact-form></contact-form>
+        <signup-form></signup-form>
         `
         ,
-    directives:[CoursesComponent,AuthorsComponent,StarComponent,LikeComponent,ContactFormComponent]
+    directives:[
+        CoursesComponent,   
+        AuthorsComponent,
+        StarComponent,
+        LikeComponent,
+        ContactFormComponent,
+        SignUpFormComponent
+        ]
 })
 export class AppComponent { 
     title = "My First Angular 2 App"

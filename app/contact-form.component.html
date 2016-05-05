@@ -1,17 +1,27 @@
-<form action="">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
     <div class="form-group">
         <label for="firstName">First Name</label>
         <input 
             ngControl="firstName" 
-            (change)="log(firstName)" 
             #firstName="ngForm" 
             type="text" 
             class="form-control" 
             id="firstName" 
-            required>
-        <div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">
-            First name is required
+            required
+            minlength="3">
+        <div *ngIf="firstName.touched && firstName.errors">
+            <div 
+                class="alert alert-danger" 
+                *ngIf="firstName.errors.required">
+                First name is required
+            </div>
+            <div 
+                class="alert alert-danger"
+                *ngIf="firstName.errors.minlength">
+                First name should be min {{ firstName.errors.minlength.requiredLength }} chars.    
+            </div>    
         </div>
+        
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
@@ -26,5 +36,5 @@
          </textarea>
          <div class="alert alert-danger" *ngIf="!comment.valid && comment.touched">Comment is required</div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
 </form>
