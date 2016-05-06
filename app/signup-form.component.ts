@@ -26,6 +26,12 @@ export class SignUpFormComponent {
     }
     
     singup(){
+        // var result = authService.login(this.form.value);
+        //if result is false you could add a validation msg to form as follows
+        this.form.find('username').setErrors({
+            invalidLogin: true
+        });
+        
         console.log(this.form.value);
     }
 }
