@@ -9,9 +9,9 @@ import {PanelComponent} from './panel.component';
 import {ZippyComponent} from './zippy.component';
 import {ContactFormComponent} from './contact-form.component';
 import {SignUpFormComponent} from './signup-form.component';
-import {PostService} from './post.service'
-import {HTTP_PROVIDERS} from 'angular2/http'
-import {OnInit} from 'angular2/core'
+import {PostService} from './post.service';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import {OnInit} from 'angular2/core';
 
 @Component({
     selector: 'my-app',
